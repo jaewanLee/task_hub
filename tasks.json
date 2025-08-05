@@ -1,0 +1,16 @@
+{
+    "action": "plan",
+    "tasks": [
+      "Scaffold project folder structure (front_end, back_end, infra)",
+      "Set up GitHub repository and .gitignore",
+      "Set up React + Next.js frontend (function-based)",
+      "Set up FastAPI backend (DDD, layered)",
+      "Set up AWS CDK infra (TypeScript)",
+      "Integrate Figma design into frontend",
+      "Connect backend to Google Docs (CSV)",
+      "Deploy infra and applications to AWS",
+      "Document setup and workflow in README",
+      "Integrate Context7 and Sequential Thinking",
+      "Review and test the full workflow"
+    ]
+  }
