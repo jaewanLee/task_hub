@@ -1,0 +1,143 @@
+{
+  "master": {
+    "tasks": [
+      {
+        "id": 1,
+        "title": "Initialize Project Structure and GitHub Repository",
+        "description": "Create the basic folder structure (front_end, back_end, infra), initialize a Git repository, and connect it to a new GitHub repository. Add initial .gitignore and README.md files.",
+        "details": "1. Create root directory with `front_end`, `back_end`, `infra` subdirectories. 2. Run `git init` and link to a new remote GitHub repository. 3. Add a comprehensive `.gitignore` for Node.js, Python, and OS-specific files. 4. Create a `README.md` with the project title and a brief overview.",
+        "testStrategy": "Verify the repository exists on GitHub with the correct folder structure and the presence of `.gitignore` and `README.md` files. A `git clone` should successfully retrieve the structure.",
+        "priority": "high",
+        "dependencies": [],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 2,
+        "title": "Scaffold Frontend Application with React and Next.js",
+        "description": "Set up a new function-based React application using the Next.js framework inside the 'front_end' directory, configured for TypeScript.",
+        "details": "1. Navigate to the `front_end` directory. 2. Use `npx create-next-app@latest` to scaffold the project. 3. Ensure the project is configured for TypeScript and uses function-based components.",
+        "testStrategy": "Run `npm run dev` from the `front_end` directory and confirm that the default Next.js welcome page loads successfully in a web browser at the specified local port.",
+        "priority": "high",
+        "dependencies": [
+          1
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 3,
+        "title": "Scaffold Backend Application with FastAPI and DDD",
+        "description": "Initialize a Python FastAPI project in the 'back_end' directory. Structure the project following Domain-Driven Design (DDD) principles with distinct domain, application, and infrastructure layers.",
+        "details": "1. Set up a Python virtual environment in the `back_end` directory. 2. Install FastAPI, Uvicorn, and other dependencies. 3. Create the directory structure for DDD: `domain`, `application`, `infrastructure`, and `api` (presentation).",
+        "testStrategy": "Create a simple `/health` endpoint. Run the FastAPI server using Uvicorn and access the `/health` endpoint via a browser or `curl` to confirm the server is running correctly.",
+        "priority": "high",
+        "dependencies": [
+          1
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 4,
+        "title": "Implement Frontend Dashboard UI from Figma Design",
+        "description": "Develop the main dashboard user interface based on the provided Figma design. This includes integrating design assets and creating components to display sample data.",
+        "details": "1. Export necessary assets (icons, images) from Figma. 2. Create React components for the dashboard layout, data table, and other UI elements. 3. Style components to match the Figma design. 4. Use mock data initially to populate the UI.",
+        "testStrategy": "Visually inspect the rendered dashboard in the browser and compare it against the Figma design mockups. Ensure all UI elements are present and correctly styled.",
+        "priority": "medium",
+        "dependencies": [
+          2
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 5,
+        "title": "Develop Backend API and Integrate with Google Docs",
+        "description": "Define and implement REST API endpoints required by the frontend dashboard. Implement the logic to connect to Google Docs and read task data from a CSV file.",
+        "details": "1. Define Pydantic models for the data. 2. Create API endpoints (e.g., `GET /api/data`). 3. Implement application services to handle business logic. 4. Create a repository in the `infrastructure` layer to fetch data from the Google Docs CSV using the Google Sheets API.",
+        "testStrategy": "Use an API client like Postman or `curl` to call the `GET /api/data` endpoint. Verify that it returns a JSON array with the data sourced from the Google Docs CSV.",
+        "priority": "high",
+        "dependencies": [
+          3
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 6,
+        "title": "Define Infrastructure as Code (IaC) using AWS CDK",
+        "description": "Create an AWS CDK project in the 'infra' directory using TypeScript. Define the necessary cloud resources, including VPC, S3, and compute resources for the frontend and backend.",
+        "details": "1. Initialize a new CDK project with `cdk init app --language typescript`. 2. Define a stack with constructs for a VPC, an S3 bucket for the frontend static assets, and an EC2 instance or Fargate service for the backend API.",
+        "testStrategy": "Run `cdk synth` to generate the CloudFormation template. Review the template to ensure all required resources (VPC, S3, EC2/Fargate) are correctly defined.",
+        "priority": "medium",
+        "dependencies": [
+          1
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 7,
+        "title": "Configure CI/CD Pipeline with GitHub Actions",
+        "description": "Create GitHub Actions workflows to automate the building, testing, and deployment of the frontend and backend applications to the AWS infrastructure.",
+        "details": "1. Create a `.github/workflows` directory. 2. Create a workflow file (`deploy.yml`). 3. Define jobs for building the frontend, building the backend (e.g., as a Docker image), and deploying both using the AWS CDK. 4. Use GitHub Secrets to store AWS credentials.",
+        "testStrategy": "Push a change to the main branch and monitor the GitHub Actions tab. Verify that all jobs in the workflow (build, test, deploy) complete successfully without manual intervention.",
+        "priority": "medium",
+        "dependencies": [
+          4,
+          5,
+          6
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 8,
+        "title": "Implement Basic Unit and Integration Tests",
+        "description": "Write basic unit tests for key frontend components and backend business logic. Add simple integration tests to verify the API endpoints are working as expected.",
+        "details": "1. For the frontend, use Jest and React Testing Library to test a critical UI component. 2. For the backend, use Pytest to write unit tests for a service in the application layer. 3. Add test execution steps to the CI/CD pipeline.",
+        "testStrategy": "Run the test suites locally (`npm test`, `pytest`). Verify that the tests pass as a required check within the GitHub Actions CI/CD pipeline.",
+        "priority": "low",
+        "dependencies": [
+          4,
+          5
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 9,
+        "title": "Update and Finalize Project Documentation",
+        "description": "Thoroughly document the project setup, architecture, workflow, and deployment process in the README.md file to ensure the project is reproducible.",
+        "details": "1. Update the `README.md` with sections for: Project Overview, Architecture, Getting Started (setup instructions), and Deployment. 2. List all environment variables and prerequisites. 3. Ensure instructions are clear and accurate.",
+        "testStrategy": "Have a team member who was not involved in the setup follow the `README.md` instructions. They should be able to successfully set up, run, and deploy the project.",
+        "priority": "medium",
+        "dependencies": [
+          7,
+          8
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 10,
+        "title": "Conduct End-to-End System Review and Testing",
+        "description": "Perform a comprehensive review of the entire deployed application. Test the full workflow from frontend UI to backend data retrieval, and refine any issues.",
+        "details": "1. Deploy the latest version of the application via the CI/CD pipeline. 2. Test the entire user flow on the live site. 3. Verify data is correctly fetched from Google Docs and displayed. 4. Check browser console and backend logs for errors. 5. Create and close final GitHub issues for any bugs.",
+        "testStrategy": "The full application is deployed and functional on AWS, meeting all success criteria from the PRD. All related GitHub issues are resolved and closed.",
+        "priority": "high",
+        "dependencies": [
+          9
+        ],
+        "status": "pending",
+        "subtasks": []
+      }
+    ],
+    "metadata": {
+      "created": "2025-08-05T09:25:15.949Z",
+      "updated": "2025-08-05T09:25:15.949Z",
+      "description": "Tasks for master context"
+    }
+  }
+}

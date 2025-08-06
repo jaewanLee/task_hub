@@ -1,0 +1,67 @@
+Product Requirements Document (PRD)
+
+Project Name: AI-Powered Task Helper Demo
+
+Overview:
+This project demonstrates a full-stack workflow using AI-powered task management, GitHub integration, and modern cloud infrastructure. The goal is to validate a seamless, reproducible process for future real-world projects.
+
+---
+
+1. Goals
+- Showcase end-to-end development: design, frontend, backend, infra, and deployment.
+- Integrate with GitHub for code and issue management.
+- Use Gemini (local CLI) for AI-powered planning and code generation.
+- Store demo data in Google Docs (CSV).
+- Use Figma for UI design and AWS CDK (TypeScript) for infrastructure.
+- Leverage Context7 and Sequential Thinking for advanced context and reasoning.
+
+---
+
+2. Features & Requirements
+
+A. Project Setup
+- Create folders: front_end, back_end, infra
+- Initialize git and connect to GitHub repo
+- Add .gitignore and README.md
+
+B. Frontend
+- Scaffold React + Next.js app (function-based)
+- Integrate Figma design assets
+- Implement a simple dashboard UI to display sample data
+
+C. Backend
+- Scaffold FastAPI project (Python, DDD, layered)
+- Define REST API endpoints for dashboard data
+- Implement domain, application, and infrastructure layers
+
+D. Infrastructure
+- Scaffold AWS CDK project (TypeScript)
+- Define VPC, EC2, and other resources
+- Set up deployment scripts for backend and frontend
+
+E. Integrations
+- Connect backend to Google Docs for CSV data storage
+- Set up GitHub Actions for CI/CD
+- Integrate Context7 and Sequential Thinking for enhanced AI context
+
+F. Testing & Documentation
+- Write basic tests for frontend and backend
+- Document setup and workflow in README.md
+
+G. Project Review
+- Review and test the full workflow
+- Refine tasks and update documentation as needed
+
+---
+
+3. Non-Functional Requirements
+- Use only open-source or free-tier tools/services
+- Code must be organized and follow best practices (function-based React, DDD for backend, modular infra)
+- All code and tasks must be tracked in GitHub
+
+---
+
+4. Success Criteria
+- All major features implemented and deployed
+- All tasks/issues tracked and closed in GitHub
+- Documentation is clear and reproducible for future projects
